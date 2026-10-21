@@ -231,27 +231,24 @@ section.tight { padding-top: 40px; }
   border-bottom: 6px solid var(--plum);
 }
 
-/* Photo banner version of the page title */
-.page-head.has-photo {
+/* Colour band with a photo that hangs below it */
+.page-head.with-photo { position: relative; padding-bottom: 48px; }
+.page-head.with-photo .page-head-inner { align-items: flex-start; }
+.page-head.with-photo .page-head-text { flex: 1 1 50%; padding-top: 8px; }
+
+.page-head-photo {
+  flex: 0 0 46%;
+  width: 46%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius);
+  box-shadow: 0 14px 34px rgba(30, 25, 27, 0.18);
+  margin-bottom: -120px;
   position: relative;
-  min-height: 380px;
-  display: flex;
-  align-items: flex-end;
-  padding: 0;
-  background-size: cover;
-  background-repeat: no-repeat;
+  z-index: 2;
 }
 
-.page-head.has-photo::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(20, 22, 26, 0.78) 0%, rgba(20, 22, 26, 0.35) 45%, rgba(20, 22, 26, 0.05) 75%);
-}
-
-.page-head.has-photo .page-head-inner { position: relative; width: 100%; padding-top: 120px; padding-bottom: 40px; }
-.page-head.has-photo h1, .page-head.has-photo .sub { color: #fff; text-shadow: 0 1px 10px rgba(0, 0, 0, 0.35); }
-.page-head.has-photo .sub { opacity: 0.95; }
+.page-head.with-photo + section { padding-top: 110px; }
 
 .page-head-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
 .page-head-logo { width: 150px; height: auto; flex: none; }
@@ -719,8 +716,9 @@ section.tight { padding-top: 40px; }
   .stats .stat { flex: 1 1 140px; }
   .block { min-height: 120px; padding: 18px; }
   .page-head-logo { width: 96px; }
-  .page-head.has-photo { min-height: 280px; }
-  .page-head.has-photo .page-head-inner { padding-top: 80px; padding-bottom: 28px; }
+  .page-head.with-photo .page-head-inner { flex-direction: column; align-items: stretch; gap: 18px; }
+  .page-head-photo { width: 100%; flex: none; margin-bottom: -80px; }
+  .page-head.with-photo + section { padding-top: 100px; }
   .cards-2 { grid-template-columns: 1fr; }
   .gallery { grid-template-columns: 1fr 1fr; }
   .feature-block { padding: 22px; }
