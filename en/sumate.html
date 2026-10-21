@@ -74,37 +74,44 @@
       <div class="panel">
         <h3>From Chile</h3>
         <p>Bank transfer to the foundation's account:</p>
-        <table class="bank">
-        <tr><th>Bank</th><td>Banco Santander</td></tr>
-        <tr><th>Account type</th><td>Cuenta corriente (current account)</td></tr>
-        <tr><th>Account no.</th><td>0-000-9513232-4</td></tr>
-        <tr><th>RUT (tax ID)</th><td>65.141.142-4</td></tr>
-        <tr><th>Account holder</th><td>Fundación Educacional Cuenca Viva</td></tr>
-        <tr><th>Email</th><td>contacto@cuencaviva.org</td></tr>
-        </table>
+        <div class="bank-card">
+          <div class="bank-card-top"><span>Fundación Educacional Cuenca Viva</span><span class="bank-chip" aria-hidden="true"></span></div>
+          <div class="bank-row"><span class="bank-k">Bank</span><span class="bank-v">Banco Santander</span><button type="button" class="bank-copy" data-copy="Banco Santander" aria-label="Copy Bank">Copy</button></div>
+          <div class="bank-row"><span class="bank-k">Account type</span><span class="bank-v">Cuenta corriente (current account)</span><button type="button" class="bank-copy" data-copy="Cuenta corriente (current account)" aria-label="Copy Account type">Copy</button></div>
+          <div class="bank-row"><span class="bank-k">Account no.</span><span class="bank-v">0-000-9513232-4</span><button type="button" class="bank-copy" data-copy="0-000-9513232-4" aria-label="Copy Account no.">Copy</button></div>
+          <div class="bank-row"><span class="bank-k">RUT (tax ID)</span><span class="bank-v">65.141.142-4</span><button type="button" class="bank-copy" data-copy="65.141.142-4" aria-label="Copy RUT (tax ID)">Copy</button></div>
+          <div class="bank-row"><span class="bank-k">Account holder</span><span class="bank-v">Fundación Educacional Cuenca Viva</span><button type="button" class="bank-copy" data-copy="Fundación Educacional Cuenca Viva" aria-label="Copy Account holder">Copy</button></div>
+          <div class="bank-row"><span class="bank-k">Email</span><span class="bank-v">contacto@cuencaviva.org</span><button type="button" class="bank-copy" data-copy="contacto@cuencaviva.org" aria-label="Copy Email">Copy</button></div>
+        </div>
+        <p><button type="button" class="btn btn-accent copy-all" data-copy="Bank: Banco Santander\nAccount type: Cuenta corriente (current account)\nAccount no.: 0-000-9513232-4\nRUT (tax ID): 65.141.142-4\nAccount holder: Fundación Educacional Cuenca Viva\nEmail: contacto@cuencaviva.org" data-done="Details copied">Copy transfer details</button></p>
       </div>
       <div class="panel">
         <h3>From abroad</h3>
         <p><strong>Buy Me a Coffee.</strong> Donate online by card through Buy Me a Coffee.</p>
         <p><a class="btn" href="https://buymeacoffee.com/cuencaviva">Donate with Buy Me a Coffee</a></p>
         <p><strong>Wise.</strong> Transfer through Wise. Email us and we'll send the account details.</p>
-        <p><a class="btn btn-outline" href="mailto:contacto@cuencaviva.org?subject=Wise">Ask for Wise details</a></p>
+        <p><a class="btn btn-outline" href="mailto:contacto@cuencaviva.org?subject=Donation%20via%20Wise&body=Hello%2C%20I%20would%20like%20to%20make%20a%20donation%20to%20Fundaci%C3%B3n%20Educacional%20Cuenca%20Viva%20through%20Wise.%20Could%20you%20send%20me%20the%20account%20details%3F%20Thank%20you.">Ask for Wise details</a></p>
       </div>
     </div>
   </div>
 </section>
 
-<section>
-  <div class="wrap circle-wrap">
-    <div class="circle-row">
-      <img class="circle-photo" src="../images/galeria-5.png" alt="" style="object-position: 50% 50%;">
-      <div>
-    <h2>Legal information</h2>
+<section class="legal-note">
+  <div class="wrap">
     <p>Fundación Educacional Cuenca Viva is covered by Chile's Donations Law No. 21.440.</p>
-      </div>
-    </div>
   </div>
 </section>
+<script>
+document.querySelectorAll("[data-copy]").forEach(function (b) {
+  b.addEventListener("click", function () {
+    var text = b.getAttribute("data-copy").replace(/\\n/g, "\n");
+    var label = b.textContent;
+    function done() { b.textContent = b.getAttribute("data-done") || "✓"; b.classList.add("copied"); setTimeout(function () { b.textContent = label; b.classList.remove("copied"); }, 1800); }
+    if (navigator.clipboard) { navigator.clipboard.writeText(text).then(done, function () {}); }
+    else { var t = document.createElement("textarea"); t.value = text; document.body.appendChild(t); t.select(); try { document.execCommand("copy"); done(); } catch (e) {} t.remove(); }
+  });
+});
+</script>
 
 <section class="alt contact-band" id="contacto">
   <div class="wrap narrow">
