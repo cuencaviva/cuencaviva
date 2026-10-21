@@ -379,6 +379,42 @@ section.tight { padding-top: 40px; }
 .tile:hover img { transform: scale(1.04); }
 .tile:hover { color: #fff; }
 
+/* ---------- Home section blocks ---------- */
+.blocks {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.block {
+  grid-column: span 2;
+  min-height: 190px;
+  border-radius: var(--radius);
+  padding: 24px 26px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-decoration: none;
+  color: #fff;
+  font-family: "Nunito Sans", "Segoe UI", Arial, sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+  line-height: 1.1;
+  transition: filter 0.2s, transform 0.2s;
+}
+
+.block:nth-child(n+4) { grid-column: span 3; }
+.block:hover { color: #fff; filter: brightness(0.93); transform: translateY(-2px); }
+.block-arrow { align-self: flex-end; font-size: 1.6rem; }
+
+.block-plum { background: var(--plum); }
+.block-orange { background: var(--orange); }
+.block-teal { background: var(--teal); }
+.block-yellow { background: var(--yellow); color: var(--ink); }
+.block-yellow:hover { color: var(--ink); }
+.block-coral { background: #c9694a; }
+
 /* ---------- Program cards ---------- */
 .cards {
   display: grid;
@@ -638,6 +674,9 @@ section.tight { padding-top: 40px; }
   .tile:last-child { grid-column: span 2; aspect-ratio: 16 / 7; }
   .gallery { grid-template-columns: repeat(3, 1fr); }
   .donate-cols { grid-template-columns: 1fr; }
+  .blocks { grid-template-columns: 1fr 1fr; }
+  .block, .block:nth-child(n+4) { grid-column: span 1; min-height: 150px; }
+  .block:last-child { grid-column: span 2; }
   .dims { grid-template-columns: 1fr; }
 }
 
@@ -656,6 +695,7 @@ section.tight { padding-top: 40px; }
   .tiles { grid-template-columns: 1fr; }
   .tile, .tile:nth-child(-n+2), .tile:last-child { grid-column: span 1; aspect-ratio: 16 / 10; }
   .stats .stat { flex: 1 1 140px; }
+  .block { min-height: 120px; padding: 18px; }
   .page-head-logo { width: 96px; }
   .cards-2 { grid-template-columns: 1fr; }
   .gallery { grid-template-columns: 1fr 1fr; }
