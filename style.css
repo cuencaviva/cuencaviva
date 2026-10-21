@@ -422,14 +422,13 @@ section.tight { padding-top: 40px; }
 /* ---------- Home section blocks ---------- */
 .blocks {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 14px;
   margin-top: 28px;
 }
 
 .block {
-  grid-column: span 2;
-  min-height: 190px;
+  min-height: 170px;
   border-radius: var(--radius);
   padding: 24px 26px;
   display: flex;
@@ -444,7 +443,6 @@ section.tight { padding-top: 40px; }
   transition: filter 0.2s, transform 0.2s;
 }
 
-.block:nth-child(n+4) { grid-column: span 3; }
 .block:hover { color: #fff; filter: brightness(0.93); transform: translateY(-2px); }
 .block-arrow { align-self: flex-end; font-size: 1.6rem; }
 
@@ -676,6 +674,66 @@ section.tight { padding-top: 40px; }
   padding: 28px;
 }
 
+/* ---------- Bank transfer card ---------- */
+.bank-card {
+  background: linear-gradient(135deg, var(--plum) 0%, #a5546a 100%);
+  color: #fff;
+  border-radius: 18px;
+  padding: 22px 24px 14px;
+  margin: 18px 0 20px;
+  box-shadow: 0 12px 28px rgba(140, 65, 85, 0.28);
+}
+
+.bank-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 800;
+  font-size: 1.02rem;
+  margin-bottom: 12px;
+}
+
+.bank-chip {
+  width: 40px;
+  height: 28px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #f6d27a, var(--yellow));
+}
+
+.bank-row {
+  display: grid;
+  grid-template-columns: 112px 1fr auto;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.bank-k { font-size: 0.88rem; opacity: 0.8; }
+.bank-v { font-weight: 700; font-size: 0.98rem; overflow-wrap: anywhere; }
+@media (min-width: 641px) { .bank-v { overflow-wrap: normal; } }
+
+.bank-copy {
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.16);
+  border: 0;
+  border-radius: 999px;
+  padding: 5px 12px;
+  cursor: pointer;
+}
+
+.bank-copy:hover { background: rgba(255, 255, 255, 0.28); }
+.bank-copy.copied { background: var(--yellow); color: var(--ink); }
+
+button.btn { font: inherit; font-weight: 600; font-size: 0.95rem; cursor: pointer; }
+.copy-all.copied { background: var(--teal); border-color: var(--teal); }
+
+.legal-note { padding: 28px 0 40px; text-align: center; }
+.legal-note p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+
 /* ---------- News ---------- */
 .news-grid {
   display: grid;
@@ -714,9 +772,7 @@ section.tight { padding-top: 40px; }
   .tile:last-child { grid-column: span 2; aspect-ratio: 16 / 7; }
   .gallery { grid-template-columns: repeat(3, 1fr); }
   .donate-cols { grid-template-columns: 1fr; }
-  .blocks { grid-template-columns: 1fr 1fr; }
-  .block, .block:nth-child(n+4) { grid-column: span 1; min-height: 150px; }
-  .block:last-child { grid-column: span 2; }
+  .block { min-height: 140px; }
   .dims { grid-template-columns: 1fr; }
 }
 
@@ -735,6 +791,8 @@ section.tight { padding-top: 40px; }
   .tiles { grid-template-columns: 1fr; }
   .tile, .tile:nth-child(-n+2), .tile:last-child { grid-column: span 1; aspect-ratio: 16 / 10; }
   .stats .stat { flex: 1 1 140px; }
+  .bank-row { grid-template-columns: 1fr auto; }
+  .bank-k { grid-column: 1 / -1; }
   .block { min-height: 120px; padding: 18px; }
   .page-head-logo { width: 96px; }
   .circle-row { grid-template-columns: 1fr; gap: 20px; }
