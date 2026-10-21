@@ -115,6 +115,28 @@ img { max-width: 100%; display: block; }
 
 .nav .btn { color: #fff; }
 
+.lang {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+}
+
+.lang:hover { border-color: var(--lake); }
+
+.flag {
+  width: 24px;
+  height: 16px;
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15);
+  display: block;
+}
+
+.lang .flag[viewBox="0 0 60 30"] { height: 12px; }
+
 /* Hero */
 .hero {
   position: relative;
