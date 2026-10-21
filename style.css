@@ -291,6 +291,27 @@ section.tight { padding-top: 40px; }
 .placeholder { color: var(--muted); font-style: italic; }
 .muted { color: var(--muted); }
 
+/* ---------- Text with a round photo (Nosotros) ---------- */
+.circle-wrap { max-width: 980px; }
+
+.circle-row {
+  display: grid;
+  grid-template-columns: 170px 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.circle-photo {
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-top: 6px;
+  box-shadow: 0 0 0 6px var(--card), 0 8px 22px rgba(30, 25, 27, 0.15);
+}
+
+.alt .circle-photo { box-shadow: 0 0 0 6px var(--sand), 0 8px 22px rgba(30, 25, 27, 0.15); }
+
 /* ---------- Casa Escuela ---------- */
 .dims {
   display: grid;
@@ -716,6 +737,8 @@ section.tight { padding-top: 40px; }
   .stats .stat { flex: 1 1 140px; }
   .block { min-height: 120px; padding: 18px; }
   .page-head-logo { width: 96px; }
+  .circle-row { grid-template-columns: 1fr; gap: 20px; }
+  .circle-photo { width: 120px; height: 120px; }
   .page-head.with-photo .page-head-inner { flex-direction: column; align-items: stretch; gap: 18px; }
   .page-head-photo { width: 100%; flex: none; margin-bottom: -80px; }
   .page-head.with-photo + section { padding-top: 100px; }
