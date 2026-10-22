@@ -630,13 +630,11 @@ section.tight { padding-top: 40px; }
 
 /* ---------- Stats ---------- */
 .stats {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 16px;
   margin-top: 24px;
 }
-
-.stats .stat { flex: 1 1 200px; max-width: 280px; }
 
 .stat {
   background: var(--card);
@@ -790,7 +788,8 @@ button.btn { font: inherit; font-weight: 600; font-size: 0.95rem; cursor: pointe
   .hero .btn { padding: 8px 14px; }
   .tiles { grid-template-columns: 1fr; }
   .tile, .tile:nth-child(-n+2), .tile:last-child { grid-column: span 1; aspect-ratio: 16 / 10; }
-  .stats .stat { flex: 1 1 140px; }
+  .stats { grid-template-columns: 1fr 1fr; }
+  .stats .stat:last-child:nth-child(odd) { grid-column: span 2; }
   .bank-row { grid-template-columns: 1fr auto; }
   .bank-k { grid-column: 1 / -1; }
   .block { min-height: 120px; padding: 18px; }
