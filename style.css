@@ -97,6 +97,35 @@ img { max-width: 100%; display: block; }
 
 .tabs-inner::-webkit-scrollbar { display: none; }
 
+/* Hint that the tab row scrolls when it doesn't fit */
+.tabs { position: relative; }
+.tabs::before, .tabs::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 3px;
+  width: 44px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s;
+  background-repeat: no-repeat;
+  background-size: 9px 14px;
+}
+.tabs::after {
+  right: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9 14'%3E%3Cpath d='M2 1l6 6-6 6' fill='none' stroke='%238c4155' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"), linear-gradient(to right, rgba(255,255,255,0), #fff 55%);
+  background-position: right 4px center, 0 0;
+  background-size: 9px 14px, 100% 100%;
+}
+.tabs::before {
+  left: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9 14'%3E%3Cpath d='M7 1L1 7l6 6' fill='none' stroke='%238c4155' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"), linear-gradient(to left, rgba(255,255,255,0), #fff 55%);
+  background-position: left 4px center, 0 0;
+  background-size: 9px 14px, 100% 100%;
+  z-index: 1;
+}
+.tabs.more-right::after, .tabs.more-left::before { opacity: 1; }
+
 .tabs a {
   flex: none;
   padding: 10px 12px 10px;
