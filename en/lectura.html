@@ -83,5 +83,20 @@
   </div>
 </footer>
 
+<script>
+(function () {
+  var nav = document.querySelector(".tabs"), row = nav && nav.querySelector(".tabs-inner");
+  if (!row) return;
+  var act = row.querySelector(".active");
+  if (act && act.offsetLeft + act.offsetWidth > row.clientWidth) row.scrollLeft = act.offsetLeft - 16;
+  function upd() {
+    nav.classList.toggle("more-right", row.scrollLeft + row.clientWidth < row.scrollWidth - 4);
+    nav.classList.toggle("more-left", row.scrollLeft > 4);
+  }
+  row.addEventListener("scroll", upd, { passive: true });
+  window.addEventListener("resize", upd);
+  upd();
+})();
+</script>
 </body>
 </html>
